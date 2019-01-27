@@ -7,15 +7,14 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Navigation4Tilemap
-{
 	
 	public class Navigation4Tilemap : MonoBehaviour
 	{
+        public static bool Available;
        public int style;
        public int perstyle;
 		private bool startFinding;
-		public bool showWallMark = true;
+		public  bool showWallMark = true;
 		public bool showPath = true;
 		public GameObject WallMark;
 		public GameObject PathMark;
@@ -27,7 +26,8 @@ namespace Navigation4Tilemap
 		[Tooltip("Layer non walkable")]
 		public LayerMask wallLayer;
 
-		public Transform player;
+        public Transform[] players;
+        public static int x;
 
         private Vector3 destPos;
 
@@ -133,7 +133,7 @@ namespace Navigation4Tilemap
 		void Update ()
 		{
 			if (startFinding) {
-				FindingPath (new Vector2 (player.position.x, player.position.y), new Vector2 (destPos.x, destPos.y));
+				FindingPath (new Vector2 (players[x].position.x, players[x].position.y), new Vector2 (destPos.x, destPos.y));
 			}
 		}
 
@@ -243,11 +243,11 @@ namespace Navigation4Tilemap
 	 */ 
 		IEnumerator SmoothMovePlayer ()
 		{
-            posplayer = player.transform.position;
+            posplayer = players[x].transform.position;
             for (int i = 0, max = pathNodes.Count; i < max; i++) {
 				bool isOver = false;
 				while (!isOver) {
-					Vector3 offSet = new Vector3 (pathNodes [i].pos.x + 0.5f, pathNodes [i].pos.y + 0.5f, 0) - player.position;
+					Vector3 offSet = new Vector3 (pathNodes [i].pos.x + 0.5f, pathNodes [i].pos.y + 0.5f, 0) - players[x].position;
                    
 					if (offSet.y > 0) {
                         style = 1;
@@ -255,7 +255,7 @@ namespace Navigation4Tilemap
                         if (style != perstyle)
                         {
                             perstyle = 1;
-                            player.transform.rotation = Quaternion.Euler(0, 0, 0);
+                            players[x].transform.rotation = Quaternion.Euler(0, 0, 0);
                         }
 
                     } else if (offSet.y < 0) {
@@ -264,7 +264,7 @@ namespace Navigation4Tilemap
                         if (style != perstyle)
                         {
                             perstyle = 4;
-                            player.transform.rotation = Quaternion.Euler(0, 0, 180);
+                            players[x].transform.rotation = Quaternion.Euler(0, 0, 180);
                         }
                 
 					} else if (offSet.x < 0) {
@@ -273,7 +273,7 @@ namespace Navigation4Tilemap
                         if (style != perstyle)
                         {
                             perstyle = 2;
-                            player.transform.rotation = Quaternion.Euler(0, 0, 90);
+                            players[x].transform.rotation = Quaternion.Euler(0, 0, 90);
                         }
                         walkDirec = WalkDirection.left;
 					} else if (offSet.x > 0) {
@@ -281,17 +281,17 @@ namespace Navigation4Tilemap
                         if(style!=perstyle)
                         {
                             perstyle = 3;
-                            player.transform.rotation = Quaternion.Euler(0, 0, -90);
+                            players[x].transform.rotation = Quaternion.Euler(0, 0, -90);
                         }
                         walkDirec = WalkDirection.right;
 					} else {
                         walkDirec = WalkDirection.idle;
 					}
 						
-					player.position += offSet.normalized * smoothMoveSpeed * Time.deltaTime;
-					if (Vector2.Distance (pathNodes [i].pos + new Vector2 (0.5f, 0.5f), new Vector2 (player.position.x, player.position.y)) < 0.1f) {
+					players[x].position += offSet.normalized * smoothMoveSpeed * Time.deltaTime;
+					if (Vector2.Distance (pathNodes [i].pos + new Vector2 (0.5f, 0.5f), new Vector2 (players[x].position.x, players[x].position.y)) < 0.1f) {
 						isOver = true;
-						player.position = new Vector3 (pathNodes [i].pos.x + 0.5f, pathNodes [i].pos.y + 0.5f, 0);
+						players[x].position = new Vector3 (pathNodes [i].pos.x + 0.5f, pathNodes [i].pos.y + 0.5f, 0);
 					}
 					yield return new WaitForFixedUpdate ();
 				}
@@ -305,7 +305,7 @@ namespace Navigation4Tilemap
 		IEnumerator StepByStepMovePlayer ()
 		{
 			for (int i = 0, max = pathNodes.Count; i < max; i++) {
-				player.position = new Vector3 (pathNodes [i].pos.x + 0.5f, pathNodes [i].pos.y + 0.5f, 0);
+				players[x].position = new Vector3 (pathNodes [i].pos.x + 0.5f, pathNodes [i].pos.y + 0.5f, 0);
 				yield return new WaitForSeconds (StepByStepInterval);
 			}
 		}
@@ -315,7 +315,7 @@ namespace Navigation4Tilemap
 	 */ 
 		void BlinkMovePlayer ()
 		{
-			player.position = new Vector3 (pathNodes [pathNodes.Count - 1].pos.x + 0.5f, pathNodes [pathNodes.Count - 1].pos.y + 0.5f, 0);
+			players[x].position = new Vector3 (pathNodes [pathNodes.Count - 1].pos.x + 0.5f, pathNodes [pathNodes.Count - 1].pos.y + 0.5f, 0);
 		}
 
 		/**
@@ -435,4 +435,3 @@ namespace Navigation4Tilemap
 		left,
 		right
 	}
-}

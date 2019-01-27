@@ -5,6 +5,7 @@ using UnityEngine;
 public class Thief : MonoBehaviour {
     public GameObject TheCar;
     public GameObject crashbuilding;
+    public bool Fixer;
     
    public float time;
     
@@ -16,17 +17,20 @@ public class Thief : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if(crashbuilding.active==true)
+        if(crashbuilding.active==true && Fixer==false)
         {
             time = Time.deltaTime+time;
-            if (time >= 15f)
+            if (time >= 6f)
             {
                 time = 0;
                 GameManager.Score--;
                 crashbuilding.SetActive(false);
-
-
             }
+         
+        }
+        if (Fixer == true)
+        {
+            time = 0;
         }
 
     }
