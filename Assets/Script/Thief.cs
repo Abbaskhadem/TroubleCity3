@@ -37,15 +37,15 @@ public class Thief : MonoBehaviour {
         }
 
     }
-    void OnColisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Collision");
-        if (col.gameObject.tag =="Dozd")
+        if (col.gameObject.tag =="Police")
         {
   
             GameManager.PoliceAvailable = false;
             GameManager.PoliceStartTimer = true;
-            TheCar.SetActive(false);
+         //   TheCar.SetActive(false);
         }
   
     }

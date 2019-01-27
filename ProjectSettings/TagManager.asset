@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Dozd
   - Police
+  - Ambulance
   layers:
   - Default
   - TransparentFX
