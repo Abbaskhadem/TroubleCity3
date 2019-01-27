@@ -8,9 +8,11 @@ public class City : MonoBehaviour {
     //Arrays
     public GameObject[] FixedCity;
     public GameObject[] FireCity;
-   // public GameObject[] DisasterCity;
-  //  public GameObject[] RoadCity;
+    // public GameObject[] DisasterCity;
+    //  public GameObject[] RoadCity;
     //indexes
+    public int MaxDisaster;
+    public  int DisasterCounter;
     private int x;
     private int y;
     //Times
@@ -27,7 +29,7 @@ public class City : MonoBehaviour {
     void Update()
     {
 
-        if (GameManager.Started==true)
+        if (GameManager.Started==true && DisasterCounter<MaxDisaster)
         {
             timegeter = Time.deltaTime + timegeter;
             CityTime = Time.deltaTime + CityTime;
@@ -56,6 +58,7 @@ public class City : MonoBehaviour {
     //Functions
     public void randomfire()
     {
+        DisasterCounter++;
         x = Random.Range(0, 2);
         FireCity[x].SetActive(true);
     }
