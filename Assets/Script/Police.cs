@@ -15,7 +15,7 @@ public class Police : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("Collision");
-        if (col.gameObject.tag == "Dozd")
+        if (col.gameObject.tag == "Police")
         {
             Debug.Log("in-Operation");
             GameManager.PoliceAvailable = false;

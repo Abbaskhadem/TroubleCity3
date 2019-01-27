@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Thief : MonoBehaviour {
     public GameObject TheCar;
     public GameObject crashbuilding;
-    public bool Fixer;
     
+    public bool Fixer;
+    public Text Scoretxt;
    public float time;
     
     // Use this for initialization
     void Start() {
-
+        Scoretxt.text = "Hapiness:" + GameManager.Score;
     }
 
     // Update is called once per frame
@@ -23,7 +25,8 @@ public class Thief : MonoBehaviour {
             if (time >= 6f)
             {
                 time = 0;
-                GameManager.Score--;
+                GameManager.Score-=20;
+                Scoretxt.text = "Hapiness:" + GameManager.Score;
                 crashbuilding.SetActive(false);
             }
          

@@ -59,7 +59,7 @@ public class City : MonoBehaviour {
     public void randomfire()
     {
         DisasterCounter++;
-        x = Random.Range(0, 2);
+        x = Random.Range(0, 8);
         FireCity[x].SetActive(true);
     }
     public void RandomTime()

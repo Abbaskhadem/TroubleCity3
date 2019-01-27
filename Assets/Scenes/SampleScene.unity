@@ -145,6 +145,7 @@ MonoBehaviour:
   TheCar: {fileID: 226294276}
   crashbuilding: {fileID: 228028778}
   Fixer: 0
+  Scoretxt: {fileID: 1143187522}
   time: 0
 --- !u!61 &61505234
 BoxCollider2D:
@@ -224,13 +225,43 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 61505232}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1.85, y: 7.97, z: 0}
-  m_LocalScale: {x: 0.10752493, y: 0.07817566, z: 0.057535198}
+  m_LocalPosition: {x: 1.861, y: 7.97, z: 0}
+  m_LocalScale: {x: 0.10752493, y: 0.07887923, z: 0.057535198}
   m_Children:
   - {fileID: 228028779}
   m_Father: {fileID: 827893139}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &69237734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 69237735}
+  m_Layer: 0
+  m_Name: Cars
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &69237735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 69237734}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.996, y: -3.751, z: 0}
+  m_LocalScale: {x: 0.15349118, y: 0.136558, z: 0.136558}
+  m_Children:
+  - {fileID: 226294279}
+  - {fileID: 970200236}
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &74053863
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,6 +2177,7 @@ GameObject:
   - component: {fileID: 151359392}
   - component: {fileID: 151359394}
   - component: {fileID: 151359393}
+  - component: {fileID: 151359395}
   m_Layer: 0
   m_Name: gray Seccond Block (1)
   m_TagString: Untagged
@@ -2257,6 +2289,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.45, y: 7.44}
   m_EdgeRadius: 0
+--- !u!114 &151359395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 151359390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2c6b3677f1d0447b08e1ecf0103ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  StartWork: 0
+  TheCar: {fileID: 0}
+  FixBuilding: {fileID: 0}
+  DestroyedCity: {fileID: 0}
 --- !u!1 &197925263
 GameObject:
   m_ObjectHideFlags: 0
@@ -2321,11 +2369,10 @@ GameObject:
   - component: {fileID: 226294279}
   - component: {fileID: 226294278}
   - component: {fileID: 226294277}
-  - component: {fileID: 226294280}
   - component: {fileID: 226294281}
   m_Layer: 0
   m_Name: Police
-  m_TagString: Untagged
+  m_TagString: Police
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2339,10 +2386,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.16807967, y: -0.16032386}
+  m_Offset: {x: -0.0043386817, y: -0.03562975}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2353,7 +2400,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13814163, y: 2.4526482}
+  m_Size: {x: 0.31628388, y: 3.8866143}
   m_EdgeRadius: 0
 --- !u!212 &226294278
 SpriteRenderer:
@@ -2389,7 +2436,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 398d6d81bec2f0c4aaa89371ad58f9a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2407,29 +2454,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 226294276}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.996, y: -3.751, z: 0}
-  m_LocalScale: {x: 0.15349118, y: 0.136558, z: 0.136558}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 69237735}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &226294280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 226294276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d2c6b3677f1d0447b08e1ecf0103ac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 1
-  StartWork: 0
-  TheCar: {fileID: 226294276}
-  FixBuilding: {fileID: 334577391}
-  DestroyedCity: {fileID: 0}
 --- !u!50 &226294281
 Rigidbody2D:
   serializedVersion: 4
@@ -2461,6 +2492,7 @@ GameObject:
   - component: {fileID: 228028780}
   - component: {fileID: 228028782}
   - component: {fileID: 228028781}
+  - component: {fileID: 228028783}
   m_Layer: 0
   m_Name: gray Fourth Block
   m_TagString: Untagged
@@ -2559,7 +2591,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.33989716, y: -0.38106108}
+  m_Offset: {x: -0.08285713, y: -0.46429825}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2570,8 +2602,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 25.551823, y: 24.736378}
+  m_Size: {x: 30.74572, y: 30.89606}
   m_EdgeRadius: 0
+--- !u!114 &228028783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 228028778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2c6b3677f1d0447b08e1ecf0103ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  StartWork: 0
+  TheCar: {fileID: 0}
+  FixBuilding: {fileID: 0}
+  DestroyedCity: {fileID: 0}
 --- !u!1 &286735770
 GameObject:
   m_ObjectHideFlags: 0
@@ -2844,6 +2892,7 @@ MonoBehaviour:
   TheCar: {fileID: 226294276}
   crashbuilding: {fileID: 151359390}
   Fixer: 0
+  Scoretxt: {fileID: 1143187522}
   time: 0
 --- !u!1 &487865943
 GameObject:
@@ -3079,7 +3128,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &624669813
 GameObject:
@@ -3169,6 +3218,7 @@ RectTransform:
   m_Children:
   - {fileID: 1237194751}
   - {fileID: 1761848241}
+  - {fileID: 1143187521}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3438,7 +3488,7 @@ Transform:
   m_LocalScale: {x: 0.21878777, y: 0.20072272, z: 0.20072272}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &827893138
 GameObject:
@@ -3487,6 +3537,7 @@ GameObject:
   - component: {fileID: 842056642}
   - component: {fileID: 842056644}
   - component: {fileID: 842056643}
+  - component: {fileID: 842056645}
   m_Layer: 0
   m_Name: gray Third Block
   m_TagString: Untagged
@@ -3598,6 +3649,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.45, y: 7.66}
   m_EdgeRadius: 0
+--- !u!114 &842056645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 842056640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2c6b3677f1d0447b08e1ecf0103ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  StartWork: 0
+  TheCar: {fileID: 0}
+  FixBuilding: {fileID: 0}
+  DestroyedCity: {fileID: 0}
 --- !u!1 &970200232
 GameObject:
   m_ObjectHideFlags: 0
@@ -3645,10 +3712,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.012488842, y: 0.00000166893}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3659,7 +3726,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.28, y: 8.36}
+  m_Size: {x: 2.1069746, y: 6.2841687}
   m_EdgeRadius: 0
 --- !u!212 &970200235
 SpriteRenderer:
@@ -3695,7 +3762,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: d59c0eafec936604c984a84129293f1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3713,12 +3780,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 970200232}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.46, y: -3.51, z: 0}
-  m_LocalScale: {x: 0.13557501, y: 0.13557501, z: 0.13557501}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.189395, y: 1.7648175, z: 0}
+  m_LocalScale: {x: 0.88327557, y: 0.9928017, z: 0.9928017}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_Father: {fileID: 69237735}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &988057422
 GameObject:
@@ -3837,6 +3904,7 @@ MonoBehaviour:
   TheCar: {fileID: 226294276}
   crashbuilding: {fileID: 842056640}
   Fixer: 0
+  Scoretxt: {fileID: 1143187522}
   time: 0
 --- !u!1 &1006522845
 GameObject:
@@ -4021,6 +4089,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1143187520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1143187521}
+  - component: {fileID: 1143187523}
+  - component: {fileID: 1143187522}
+  m_Layer: 5
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1143187521
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1143187520}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 624669817}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.7696698, y: 0.85266304}
+  m_AnchorMax: {x: 1, y: 0.95900005}
+  m_AnchoredPosition: {x: 15, y: -0.5}
+  m_SizeDelta: {x: 34, y: -3}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1143187522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1143187520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1143187523
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1143187520}
+  m_CullTransparentMesh: 0
 --- !u!1 &1230732030
 GameObject:
   m_ObjectHideFlags: 0
@@ -4303,6 +4446,7 @@ MonoBehaviour:
   TheCar: {fileID: 226294276}
   crashbuilding: {fileID: 2031994363}
   Fixer: 0
+  Scoretxt: {fileID: 1143187522}
   time: 0
 --- !u!1 &1278740193
 GameObject:
@@ -4340,7 +4484,7 @@ Transform:
   - {fileID: 1087176954}
   - {fileID: 643764093}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1290617494
 GameObject:
@@ -4459,6 +4603,7 @@ MonoBehaviour:
   TheCar: {fileID: 226294276}
   crashbuilding: {fileID: 1907110789}
   Fixer: 0
+  Scoretxt: {fileID: 1143187522}
   time: 0
 --- !u!1 &1292314587
 GameObject:
@@ -4471,6 +4616,7 @@ GameObject:
   - component: {fileID: 1292314589}
   - component: {fileID: 1292314591}
   - component: {fileID: 1292314590}
+  - component: {fileID: 1292314592}
   m_Layer: 0
   m_Name: gray Fourth Block (1)
   m_TagString: Untagged
@@ -4582,6 +4728,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 24.294537, y: 23.285814}
   m_EdgeRadius: 0
+--- !u!114 &1292314592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1292314587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2c6b3677f1d0447b08e1ecf0103ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  StartWork: 0
+  TheCar: {fileID: 0}
+  FixBuilding: {fileID: 0}
+  DestroyedCity: {fileID: 0}
 --- !u!1 &1332092053
 GameObject:
   m_ObjectHideFlags: 0
@@ -4901,6 +5063,7 @@ GameObject:
   - component: {fileID: 1528411129}
   - component: {fileID: 1528411131}
   - component: {fileID: 1528411130}
+  - component: {fileID: 1528411132}
   m_Layer: 0
   m_Name: gray Third Block (1)
   m_TagString: Untagged
@@ -5012,6 +5175,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.4236097, y: 5.646545}
   m_EdgeRadius: 0
+--- !u!114 &1528411132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1528411127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2c6b3677f1d0447b08e1ecf0103ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  StartWork: 0
+  TheCar: {fileID: 0}
+  FixBuilding: {fileID: 0}
+  DestroyedCity: {fileID: 0}
 --- !u!1 &1547083965
 GameObject:
   m_ObjectHideFlags: 0
@@ -5129,6 +5308,7 @@ MonoBehaviour:
   TheCar: {fileID: 226294276}
   crashbuilding: {fileID: 1863144934}
   Fixer: 0
+  Scoretxt: {fileID: 1143187522}
   time: 0
 --- !u!1 &1564252252
 GameObject:
@@ -5156,7 +5336,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1691354136
 GameObject:
@@ -5218,7 +5398,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1761848240
 GameObject:
@@ -5445,6 +5625,7 @@ MonoBehaviour:
   TheCar: {fileID: 226294276}
   crashbuilding: {fileID: 1292314587}
   Fixer: 0
+  Scoretxt: {fileID: 1143187522}
   time: 0
 --- !u!4 &1771618569
 Transform:
@@ -5471,6 +5652,7 @@ GameObject:
   - component: {fileID: 1863144936}
   - component: {fileID: 1863144938}
   - component: {fileID: 1863144937}
+  - component: {fileID: 1863144939}
   m_Layer: 0
   m_Name: gray First Block
   m_TagString: Untagged
@@ -5582,6 +5764,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 30.99, y: 31.899998}
   m_EdgeRadius: 0
+--- !u!114 &1863144939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1863144934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2c6b3677f1d0447b08e1ecf0103ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  StartWork: 0
+  TheCar: {fileID: 0}
+  FixBuilding: {fileID: 0}
+  DestroyedCity: {fileID: 0}
 --- !u!1 &1907110789
 GameObject:
   m_ObjectHideFlags: 0
@@ -5593,6 +5791,7 @@ GameObject:
   - component: {fileID: 1907110790}
   - component: {fileID: 1907110793}
   - component: {fileID: 1907110792}
+  - component: {fileID: 1907110794}
   m_Layer: 0
   m_Name: gray First Block
   m_TagString: Untagged
@@ -5704,6 +5903,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 26.721815, y: 23.675877}
   m_EdgeRadius: 0
+--- !u!114 &1907110794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1907110789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2c6b3677f1d0447b08e1ecf0103ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  StartWork: 0
+  TheCar: {fileID: 0}
+  FixBuilding: {fileID: 0}
+  DestroyedCity: {fileID: 0}
 --- !u!1 &1953572437
 GameObject:
   m_ObjectHideFlags: 0
@@ -5822,6 +6037,7 @@ MonoBehaviour:
   TheCar: {fileID: 226294276}
   crashbuilding: {fileID: 1528411127}
   Fixer: 0
+  Scoretxt: {fileID: 1143187522}
   time: 0
 --- !u!50 &1953572442
 Rigidbody2D:
@@ -5929,6 +6145,7 @@ GameObject:
   - component: {fileID: 2031994365}
   - component: {fileID: 2031994367}
   - component: {fileID: 2031994366}
+  - component: {fileID: 2031994368}
   m_Layer: 0
   m_Name: gray Seccond Block
   m_TagString: Untagged
@@ -6040,6 +6257,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 9.354869, y: 7.660157}
   m_EdgeRadius: 0
+--- !u!114 &2031994368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2031994363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d2c6b3677f1d0447b08e1ecf0103ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  StartWork: 0
+  TheCar: {fileID: 0}
+  FixBuilding: {fileID: 0}
+  DestroyedCity: {fileID: 0}
 --- !u!1 &2036410122
 GameObject:
   m_ObjectHideFlags: 0
@@ -6219,7 +6452,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 97f589b9d41755646a8e43f864014fc1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6242,7 +6475,7 @@ Transform:
   m_LocalScale: {x: 0.22611053, y: 0.22611053, z: 0.22611053}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2077155452
 GameObject:
@@ -6343,5 +6576,5 @@ Transform:
   m_LocalScale: {x: 0.8740004, y: 0.8740004, z: 0.8739999}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
