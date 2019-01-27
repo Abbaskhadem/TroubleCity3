@@ -6,13 +6,12 @@ public class Police : MonoBehaviour {
     public int id = 1;
     public static float WorkTime;
     public float StartWork;
-    public GameObject TheCar;
     public GameObject FixBuilding;
     public GameObject DestroyedCity;
 	void Start () {
 		
 	}
-    void OnCollisionEnter2D(Collision2D col)
+   public void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Collision");
         if (col.gameObject.tag == "Police")
